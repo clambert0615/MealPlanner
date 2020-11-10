@@ -1,0 +1,23 @@
+﻿@using MealPlanner.Models;
+@model Recipe
+
+<h1 style="text-align:center">Recipes</h1>
+<br />
+<table style="width:100%">
+    <thead>
+        <tr>
+            <th>Title</th>
+            
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var r in Model.meals)
+        {
+            <tr>
+                <td><a href="/Recipe/Details?id=@r.idMeal">@r.strMeal<a/></td>
+                <td><img src="@r.strMealThumb" style="width:30%"/></td>
+                             
+            </tr>
+        }
+    </tbody>
+</table>
