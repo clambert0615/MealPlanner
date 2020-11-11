@@ -11,10 +11,12 @@ namespace MealPlanner.Controllers
     {
         private readonly MealPlannerDbContext _context;
         private readonly RecipeDALInterface _recapi;
+   
         public RecipeController(MealPlannerDbContext context, RecipeDALInterface recapi)
         {
             _context = context;
             _recapi = recapi;
+         
         }
         public IActionResult Index()
         {
@@ -29,7 +31,10 @@ namespace MealPlanner.Controllers
         public async Task<IActionResult> Details(string id)
         {
             RecipeDetail recipe = await _recapi.RecipeDetails(id);
+         
             return View(recipe);
         }
+
+       
     }
 }

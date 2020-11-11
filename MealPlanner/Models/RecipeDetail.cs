@@ -5,7 +5,10 @@ using System.Threading.Tasks;
 
 namespace MealPlanner.Models
 {
-
+    public class Recipe
+    {
+        public Meal[] meals { get; set; }
+    }
     public class RecipeDetail
     {
         public Meal[] meals { get; set; }
@@ -37,11 +40,11 @@ namespace MealPlanner.Models
         public string strIngredient13 { get; set; }
         public string strIngredient14 { get; set; }
         public string strIngredient15 { get; set; }
-        public object strIngredient16 { get; set; }
-        public object strIngredient17 { get; set; }
-        public object strIngredient18 { get; set; }
-        public object strIngredient19 { get; set; }
-        public object strIngredient20 { get; set; }
+        public string strIngredient16 { get; set; }
+        public string strIngredient17 { get; set; }
+        public string strIngredient18 { get; set; }
+        public string strIngredient19 { get; set; }
+        public string strIngredient20 { get; set; }
         public string strMeasure1 { get; set; }
         public string strMeasure2 { get; set; }
         public string strMeasure3 { get; set; }
@@ -57,11 +60,11 @@ namespace MealPlanner.Models
         public string strMeasure13 { get; set; }
         public string strMeasure14 { get; set; }
         public string strMeasure15 { get; set; }
-        public object strMeasure16 { get; set; }
-        public object strMeasure17 { get; set; }
-        public object strMeasure18 { get; set; }
-        public object strMeasure19 { get; set; }
-        public object strMeasure20 { get; set; }
+        public string strMeasure16 { get; set; }
+        public string strMeasure17 { get; set; }
+        public string strMeasure18 { get; set; }
+        public string strMeasure19 { get; set; }
+        public string strMeasure20 { get; set; }
         public object strSource { get; set; }
         public object dateModified { get; set; }
     }
