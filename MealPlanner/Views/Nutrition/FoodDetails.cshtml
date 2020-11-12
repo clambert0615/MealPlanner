@@ -1,0 +1,15 @@
+﻿@using MealPlanner.Models
+@model FoodDetail
+
+<h1 style="text-align:center">Details for @Model.description</h1>
+<br />
+<p>Ingredients: @Model.ingredients</p>
+<p>Serving Size: @Model.servingSize &nbsp;@Model.servingSizeUnit</p>
+<p>Nutrients: 
+    
+        @foreach(var n in Model.foodNutrients)
+        {
+           <div> @n.nutrient.name  &nbsp; &nbsp; @n.amount &nbsp;@n.nutrient.unitName</div>
+        }
+    
+</p>  

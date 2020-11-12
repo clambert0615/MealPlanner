@@ -39,7 +39,8 @@ namespace MealPlanner
             services.AddControllersWithViews();
             services.AddRazorPages();
             services.AddTransient<RecipeDALInterface, RecipeDAL>();
-          
+            services.AddTransient<NutritionDALInterface, NutritionDAL>();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

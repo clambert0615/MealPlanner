@@ -1,0 +1,22 @@
+﻿@using MealPlanner.Models
+@model FoodNutrition
+
+<h1 style="text-align:center">Food List</h1>
+<br />
+<table style="width:100%">
+    <thead>
+        <tr>
+            <th>Food</th>
+            
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var f in Model.foods)
+        {
+            <tr>
+                <td><a href="/Nutrition/FoodDetails?id=@f.fdcId">@f.description</a></td>
+              
+            </tr>
+        }
+    </tbody>
+</table>
