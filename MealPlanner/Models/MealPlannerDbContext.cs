@@ -24,13 +24,15 @@ namespace MealPlanner.Models
         public virtual DbSet<AspNetUserRoles> AspNetUserRoles { get; set; }
         public virtual DbSet<AspNetUserTokens> AspNetUserTokens { get; set; }
         public virtual DbSet<AspNetUsers> AspNetUsers { get; set; }
+        public virtual DbSet<FavoriteRecipes> FavoriteRecipes { get; set; }
+        public virtual DbSet<Menu> Menu { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)
             {
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
-                optionsBuilder.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")); 
+                optionsBuilder.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"));
             }
         }
 
@@ -132,6 +134,40 @@ namespace MealPlanner.Models
                 entity.Property(e => e.NormalizedUserName).HasMaxLength(256);
 
                 entity.Property(e => e.UserName).HasMaxLength(256);
+            });
+
+            modelBuilder.Entity<FavoriteRecipes>(entity =>
+            {
+                entity.HasKey(e => e.FavId)
+                    .HasName("PK__Favorite__9694C495ED7764C5");
+
+                entity.Property(e => e.RecipeId).HasMaxLength(50);
+
+                entity.Property(e => e.UserId).HasMaxLength(450);
+
+                entity.HasOne(d => d.User)
+                    .WithMany(p => p.FavoriteRecipes)
+                    .HasForeignKey(d => d.UserId)
+                    .HasConstraintName("FK__FavoriteR__UserI__5CD6CB2B");
+            });
+
+            modelBuilder.Entity<Menu>(entity =>
+            {
+                entity.HasKey(e => e.ItemId)
+                    .HasName("PK__Menu__727E838B8391F980");
+
+                entity.Property(e => e.Item).HasMaxLength(75);
+
+                entity.Property(e => e.Meal).HasMaxLength(50);
+
+                entity.Property(e => e.MealDate).HasColumnType("date");
+
+                entity.Property(e => e.UserId).HasMaxLength(450);
+
+                entity.HasOne(d => d.User)
+                    .WithMany(p => p.Menu)
+                    .HasForeignKey(d => d.UserId)
+                    .HasConstraintName("FK__Menu__UserId__5FB337D6");
             });
 
             OnModelCreatingPartial(modelBuilder);

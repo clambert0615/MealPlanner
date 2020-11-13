@@ -11,6 +11,8 @@ namespace MealPlanner.Models
             AspNetUserLogins = new HashSet<AspNetUserLogins>();
             AspNetUserRoles = new HashSet<AspNetUserRoles>();
             AspNetUserTokens = new HashSet<AspNetUserTokens>();
+            FavoriteRecipes = new HashSet<FavoriteRecipes>();
+            Menu = new HashSet<Menu>();
         }
 
         public string Id { get; set; }
@@ -33,5 +35,7 @@ namespace MealPlanner.Models
         public virtual ICollection<AspNetUserLogins> AspNetUserLogins { get; set; }
         public virtual ICollection<AspNetUserRoles> AspNetUserRoles { get; set; }
         public virtual ICollection<AspNetUserTokens> AspNetUserTokens { get; set; }
+        public virtual ICollection<FavoriteRecipes> FavoriteRecipes { get; set; }
+        public virtual ICollection<Menu> Menu { get; set; }
     }
 }
