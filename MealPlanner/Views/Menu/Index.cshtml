@@ -1,5 +1,51 @@
 ﻿<h1 style="text-align:center">Menu Planner</h1>
 <br />
-<p>Using the menu planner tool, you can plan your daily menu and save it.  You can also look up calorie information
-    for foods to help you stay within your dietary recommendations.</p>
+<p>
+    Using the menu planner tool, you can plan your daily menu and save it.  You can also look up calorie information
+    for foods to help you stay within your dietary recommendations.
+</p>
+<form action="/Menu/AddMeals" method="post">
+<div>
+    <h3 style="color:cadetblue">Click the button to add items to your menu:</h3>
+    <button type="button" id="AddButton">Add Item</button>
+    <table style="width:100%">
+        <thead>
+            <tr>
+                <td>Date</td>
+                <td>Meal (Breakfast, Lunch, Dinner, or Snack)</td>
+                <td>Item</td>
+                <td>Calories</td>
+                <td>Quantity</td>
+                <td></td>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+    <br />
+    <button>Submit</button>
+</div>
+</form>
 
+<input type="hidden" id="totalItems" value="0" />
+<br />
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $("#AddButton").click(function () {
+            tc = parseInt($("#totalItems").val());
+            tc = tc + 1;
+            $("#totalItems").val(tc)
+
+            $("tbody").append('<tr><td><input type="date" name="[' + (tc - 1) + '].MealDate" /></td><td><input type="text" name="[' + (tc - 1) + '].Meal" /></td><td><input type="text" name="[' + (tc - 1) + '].Item" /></td><td><input type="number" name="[' + (tc - 1) + '].Calories" /></td><td><input type="number" name="[' + (tc - 1) + '].Quantity" /></td></tr>')
+        });
+
+        $("tbody").on("click", "span", function () {
+            tc = parseInt($("#totalItems").val());
+            tc = tc - 1;
+            $("#totalItems").val(tc)
+
+            $(this).parents("tr").remove();
+        });
+    });
+</script>

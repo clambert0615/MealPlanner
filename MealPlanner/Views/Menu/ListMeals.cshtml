@@ -1,0 +1,10 @@
+﻿@using MealPlanner.Models
+
+@model List<Menu>
+
+<h1 style="text-align:center">Personalized Menu</h1>
+<br />
+@foreach (Menu i in Model.OrderBy(x => x.MealDate))
+{
+<p>Date: @i.MealDate?.ToString("MM/dd/yyyy") &nbsp;&nbsp;&nbsp;&nbsp;Meal: @i.Meal &nbsp;&nbsp;&nbsp;&nbsp;Item: @i.Item&nbsp;&nbsp;&nbsp;&nbsp;Calories: @i.Calories &nbsp;&nbsp;&nbsp;&nbsp;Quantity: @i.Quantity</p>
+}

@@ -11,6 +11,7 @@ namespace MealPlanner.Models
         public string Meal { get; set; }
         public DateTime? MealDate { get; set; }
         public int? Quantity { get; set; }
+        public int? Calories { get; set; }
 
         public virtual AspNetUsers User { get; set; }
     }
