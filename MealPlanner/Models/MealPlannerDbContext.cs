@@ -143,6 +143,8 @@ namespace MealPlanner.Models
 
                 entity.Property(e => e.RecipeId).HasMaxLength(50);
 
+                entity.Property(e => e.RecipeName).HasMaxLength(75);
+
                 entity.Property(e => e.UserId).HasMaxLength(450);
 
                 entity.HasOne(d => d.User)

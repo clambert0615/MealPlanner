@@ -4,7 +4,47 @@
 
 <h1 style="text-align:center">Personalized Menu</h1>
 <br />
-@foreach (Menu i in Model.OrderBy(x => x.MealDate))
+@{ DateTime? previousMealDate = null; }
+@{ string previousMeal = null; }
+@{ int? calorieCount = 0;}
+@foreach (Menu i in Model.OrderBy(x => x.MealDate).ThenBy(y => (y.Meal == "Breakfast" ? 0 : (y.Meal == "Lunch" ? 1 : (y.Meal == "Dinner" ? 2 : 3)))))
 {
-<p>Date: @i.MealDate?.ToString("MM/dd/yyyy") &nbsp;&nbsp;&nbsp;&nbsp;Meal: @i.Meal &nbsp;&nbsp;&nbsp;&nbsp;Item: @i.Item&nbsp;&nbsp;&nbsp;&nbsp;Calories: @i.Calories &nbsp;&nbsp;&nbsp;&nbsp;Quantity: @i.Quantity</p>
+    @if (i.MealDate != previousMealDate)
+    {
+        previousMealDate = i.MealDate;
+        if (calorieCount != 0)
+        {
+            <h5>Total Calories = @calorieCount</h5>
+            calorieCount = 0;
+        }
+        <br />
+        <hr />
+        <br />
+        <h3>@i.MealDate?.ToString("MM/dd/yyyy")</h3>
+
+    }
+
+    @if (i.Meal != previousMeal)
+    {
+        previousMeal = i.Meal;
+        <br />
+        <h5>@i.Meal</h5>
+    }
+
+<div>
+    Item: @i.Item, Calories: @i.Calories, Quantity: @i.Quantity   
+    <form style="display:inline-block" action="/Menu/UpdateQuantity" method="post">
+        <input type="hidden" id="itemId" name="itemId" value="@i.ItemId" />
+        <input type="number" id="quantity" name="quantity" />
+        <input type="submit" value="Update quantity" />
+    </form>
+
+</div>
+    <br />
+    calorieCount += i.Calories;
 }
+ @if (calorieCount != 0)
+        {
+<h5>Total Calories = @calorieCount</h5>
+     calorieCount = 0;
+ }

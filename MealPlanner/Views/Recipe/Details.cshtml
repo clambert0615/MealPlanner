@@ -3,7 +3,7 @@
 
 <h1 style="text-align:center">@Model.meals[0].strMeal</h1>
 <br />
-
+<button onclick="document.location='/Recipe/AddFavorite?id=@Model.meals[0].idMeal&name=@Model.meals[0].strMeal'">Add to Favorites</button>
 <h3>Ingredients</h3>
 
 @if (Model.meals[0].strIngredient1 != "" || Model.meals[0].strIngredient1 != null)

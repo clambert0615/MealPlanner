@@ -8,7 +8,7 @@ namespace MealPlanner.Models
         public int FavId { get; set; }
         public string RecipeId { get; set; }
         public string UserId { get; set; }
-
+        public string RecipeName { get; set; }
         public virtual AspNetUsers User { get; set; }
     }
 }

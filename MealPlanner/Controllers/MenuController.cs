@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using MealPlanner.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace MealPlanner.Controllers
 {
@@ -48,6 +49,24 @@ namespace MealPlanner.Controllers
             {
                 return RedirectToAction("ErrorPage");
             }
+        }
+        [Authorize]
+        public IActionResult UpdateQuantity(int itemId, int quantity)
+        {
+            Menu item = _context.Menu.Find(itemId);
+            if(quantity == 0)
+            {
+                _context.Menu.Remove(item);
+                _context.SaveChanges();
+            }
+            if(item != null && quantity > 0)
+            {
+                item.Quantity = quantity;
+                _context.Entry(item).State = EntityState.Modified;
+                _context.Update(item);
+                _context.SaveChanges();
+            }
+            return RedirectToAction("ListMeals");
         }
     }
 }
