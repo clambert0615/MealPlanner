@@ -1,7 +1,36 @@
-﻿<h1 style="text-align:center">Nutrition Search</h1>
-<br />
-<form action="/Nutrition/GetFoods" method="post">
-    <label for="food">Enter a food</label><br />
-    <input type="text" id="food" name="food" placeholder="Food Item" /><br />
-    <input type="submit" value="Submit" />
-</form>
+﻿<html>
+<head>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        .row {
+            display: flex;
+        }
+
+        .column {
+            flex: 50%;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1 style="text-align:center;color:darkcyan">Nutrition Search</h1>
+    <br />
+    <div class="row">
+        <div class="column">
+            <form action="/Nutrition/GetFoods" method="post">
+                <label for="food">Enter a Food to Search For:</label><br />
+                <input type="text" id="food" name="food" placeholder="Food Item" /><br /><br />
+                <input type="submit" value="Submit" />
+            </form>
+            </div>
+        <div class="column">
+          
+            <img src="~/Images/nutrition.jpg" style="width:70%" />
+            </div>
+        </div>
+</body>
+</html>

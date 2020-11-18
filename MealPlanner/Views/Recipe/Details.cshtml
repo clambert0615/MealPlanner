@@ -1,92 +1,120 @@
 ﻿@using MealPlanner.Models
 @model RecipeDetail
+    <html>
+<head>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
 
-<h1 style="text-align:center">@Model.meals[0].strMeal</h1>
-<br />
-<button onclick="document.location='/Recipe/AddFavorite?id=@Model.meals[0].idMeal&name=@Model.meals[0].strMeal'">Add to Favorites</button>
-<h3>Ingredients</h3>
+        .row {
+            display: flex;
+        }
 
-@if (Model.meals[0].strIngredient1 != "" || Model.meals[0].strIngredient1 != null)
-{
-<div>@Model.meals[0].strIngredient1 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; @Model.meals[0].strMeasure1 </div>
-}
-@if (Model.meals[0].strIngredient2 != "" || Model.meals[0].strIngredient2 != null)
-{
-<div>@Model.meals[0].strIngredient2 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; @Model.meals[0].strMeasure2 </div>
-}
-@if (Model.meals[0].strIngredient3 != "" || Model.meals[0].strIngredient3 != null)
-{
-<div>@Model.meals[0].strIngredient3  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  @Model.meals[0].strMeasure3</div>
-}
-@if (Model.meals[0].strIngredient4 != "" || Model.meals[0].strIngredient4 != null)
-{
-<div>@Model.meals[0].strIngredient4  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  @Model.meals[0].strMeasure4</div>
-}
-@if (Model.meals[0].strIngredient5 != "" || Model.meals[0].strIngredient5 != null)
-{
-<div>@Model.meals[0].strIngredient5  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  @Model.meals[0].strMeasure5</div>
-}
-@if (Model.meals[0].strIngredient6 != "" || Model.meals[0].strIngredient6 != null)
-{
-<div>@Model.meals[0].strIngredient6  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  @Model.meals[0].strMeasure6</div>
-}
-@if (Model.meals[0].strIngredient7 != "" || Model.meals[0].strIngredient7 != null)
-{
-<div>@Model.meals[0].strIngredient7  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  @Model.meals[0].strMeasure7</div>
-}
-@if (Model.meals[0].strIngredient8 != "" || Model.meals[0].strIngredient8 != null)
-{
-<div>@Model.meals[0].strIngredient8  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  @Model.meals[0].strMeasure8</div>
-}
-@if (Model.meals[0].strIngredient9 != "" || Model.meals[0].strIngredient9 != null)
-{
-<div>@Model.meals[0].strIngredient9  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  @Model.meals[0].strMeasure9</div>
-}
-@if (Model.meals[0].strIngredient10 != "" || Model.meals[0].strIngredient10 != null)
-{
-<div>@Model.meals[0].strIngredient10  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  @Model.meals[0].strMeasure10</div>
-}
-@if (Model.meals[0].strIngredient11 != "" || Model.meals[0].strIngredient11 != null)
-{
-<div>@Model.meals[0].strIngredient11  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  @Model.meals[0].strMeasure11</div>
-}
-@if (Model.meals[0].strIngredient12 != "" || Model.meals[0].strIngredient12 != null)
-{
-<div>@Model.meals[0].strIngredient12  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  @Model.meals[0].strMeasure12</div>
-}
-@if (Model.meals[0].strIngredient13 != "" || Model.meals[0].strIngredient13 != null)
-{
-<div>@Model.meals[0].strIngredient13  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  @Model.meals[0].strMeasure13</div>
-}
-@if (Model.meals[0].strIngredient14 != "" || Model.meals[0].strIngredient14 != null)
-{
-<div>@Model.meals[0].strIngredient14  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  @Model.meals[0].strMeasure14</div>
-}
-@if (Model.meals[0].strIngredient15 != "" || Model.meals[0].strIngredient15 != null)
-{
-<div>@Model.meals[0].strIngredient15  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  @Model.meals[0].strMeasure15</div>
-} 
-@if (Model.meals[0].strIngredient16 != "" || Model.meals[0].strIngredient16 != null)
-{
-<div>@Model.meals[0].strIngredient16  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  @Model.meals[0].strMeasure16</div>
-}
-@if (Model.meals[0].strIngredient17 != "" || Model.meals[0].strIngredient17 != null)
-{
-<div>@Model.meals[0].strIngredient17  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  @Model.meals[0].strMeasure17</div>
-}
-@if (Model.meals[0].strIngredient18 != "" || Model.meals[0].strIngredient18 != null)
-{
-<div>@Model.meals[0].strIngredient18  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  @Model.meals[0].strMeasure18</div>
-}
-@if (Model.meals[0].strIngredient19 != "" || Model.meals[0].strIngredient19 != null)
-{
-<div>@Model.meals[0].strIngredient19  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  @Model.meals[0].strMeasure19</div>
-}
-@if (Model.meals[0].strIngredient20 != "" || Model.meals[0].strIngredient20 != null)
-{
-<div>@Model.meals[0].strIngredient20  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  @Model.meals[0].strMeasure20</div>
-}
-<br />
- <h3>Instructions</h3> 
-<br />
-<p>@Model.meals[0].strInstructions</p>
+        .column {
+            flex: 49%;
+            padding: 10px;
+      }
+    </style>
+    </head>
+    <body>
+        <h1 style="text-align:center;color:darkcyan">@Model.meals[0].strMeal</h1>
+        <br />
+        <button onclick="document.location='/Recipe/AddFavorite?id=@Model.meals[0].idMeal&name=@Model.meals[0].strMeal'">Add to Favorites</button>
+        <div class="row">
+           <div class="column">     
+       
+        <h3>Ingredients</h3>
+
+        @if (Model.meals[0].strIngredient1 != "" || Model.meals[0].strIngredient1 != null)
+        {
+            <div>@Model.meals[0].strIngredient1 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; @Model.meals[0].strMeasure1 </div>
+        }
+        @if (Model.meals[0].strIngredient2 != "" || Model.meals[0].strIngredient2 != null)
+        {
+            <div>@Model.meals[0].strIngredient2 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; @Model.meals[0].strMeasure2 </div>
+        }
+        @if (Model.meals[0].strIngredient3 != "" || Model.meals[0].strIngredient3 != null)
+        {
+            <div>@Model.meals[0].strIngredient3  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  @Model.meals[0].strMeasure3</div>
+        }
+        @if (Model.meals[0].strIngredient4 != "" || Model.meals[0].strIngredient4 != null)
+        {
+            <div>@Model.meals[0].strIngredient4  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  @Model.meals[0].strMeasure4</div>
+        }
+        @if (Model.meals[0].strIngredient5 != "" || Model.meals[0].strIngredient5 != null)
+        {
+            <div>@Model.meals[0].strIngredient5  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  @Model.meals[0].strMeasure5</div>
+        }
+        @if (Model.meals[0].strIngredient6 != "" || Model.meals[0].strIngredient6 != null)
+        {
+            <div>@Model.meals[0].strIngredient6  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  @Model.meals[0].strMeasure6</div>
+        }
+        @if (Model.meals[0].strIngredient7 != "" || Model.meals[0].strIngredient7 != null)
+        {
+            <div>@Model.meals[0].strIngredient7  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  @Model.meals[0].strMeasure7</div>
+        }
+        @if (Model.meals[0].strIngredient8 != "" || Model.meals[0].strIngredient8 != null)
+        {
+            <div>@Model.meals[0].strIngredient8  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  @Model.meals[0].strMeasure8</div>
+        }
+        @if (Model.meals[0].strIngredient9 != "" || Model.meals[0].strIngredient9 != null)
+        {
+            <div>@Model.meals[0].strIngredient9  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  @Model.meals[0].strMeasure9</div>
+        }
+        @if (Model.meals[0].strIngredient10 != "" || Model.meals[0].strIngredient10 != null)
+        {
+            <div>@Model.meals[0].strIngredient10  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  @Model.meals[0].strMeasure10</div>
+        }
+        @if (Model.meals[0].strIngredient11 != "" || Model.meals[0].strIngredient11 != null)
+        {
+            <div>@Model.meals[0].strIngredient11  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  @Model.meals[0].strMeasure11</div>
+        }
+        @if (Model.meals[0].strIngredient12 != "" || Model.meals[0].strIngredient12 != null)
+        {
+            <div>@Model.meals[0].strIngredient12  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  @Model.meals[0].strMeasure12</div>
+        }
+        @if (Model.meals[0].strIngredient13 != "" || Model.meals[0].strIngredient13 != null)
+        {
+            <div>@Model.meals[0].strIngredient13  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  @Model.meals[0].strMeasure13</div>
+        }
+        @if (Model.meals[0].strIngredient14 != "" || Model.meals[0].strIngredient14 != null)
+        {
+            <div>@Model.meals[0].strIngredient14  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  @Model.meals[0].strMeasure14</div>
+        }
+        @if (Model.meals[0].strIngredient15 != "" || Model.meals[0].strIngredient15 != null)
+        {
+            <div>@Model.meals[0].strIngredient15  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  @Model.meals[0].strMeasure15</div>
+        }
+        @if (Model.meals[0].strIngredient16 != "" || Model.meals[0].strIngredient16 != null)
+        {
+            <div>@Model.meals[0].strIngredient16  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  @Model.meals[0].strMeasure16</div>
+        }
+        @if (Model.meals[0].strIngredient17 != "" || Model.meals[0].strIngredient17 != null)
+        {
+            <div>@Model.meals[0].strIngredient17  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  @Model.meals[0].strMeasure17</div>
+        }
+        @if (Model.meals[0].strIngredient18 != "" || Model.meals[0].strIngredient18 != null)
+        {
+            <div>@Model.meals[0].strIngredient18  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  @Model.meals[0].strMeasure18</div>
+        }
+        @if (Model.meals[0].strIngredient19 != "" || Model.meals[0].strIngredient19 != null)
+        {
+            <div>@Model.meals[0].strIngredient19  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  @Model.meals[0].strMeasure19</div>
+        }
+        @if (Model.meals[0].strIngredient20 != "" || Model.meals[0].strIngredient20 != null)
+        {
+            <div>@Model.meals[0].strIngredient20  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  @Model.meals[0].strMeasure20</div>
+        }
+               </div>
+            <div class="column">
+                <img src="@Model.meals[0].strMealThumb" style="width:50%" />
+
+                </div>
+            </div>
+        <h3>Instructions</h3>
+        <br />
+        <p>@Model.meals[0].strInstructions</p>
+          
+        </body>
+</html>  
