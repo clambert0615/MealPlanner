@@ -27,7 +27,7 @@ The program also includes a nutrition lookup to display the calories for a food 
 
 ![image](https://user-images.githubusercontent.com/60634063/99669622-55747800-2a3d-11eb-9792-a8b0e6187d7f.png)
 
-![image](https://user-images.githubusercontent.com/60634063/99669737-83f25300-2a3d-11eb-97ca-407b7e61c90e.png)
+![image](https://user-images.githubusercontent.com/60634063/99670723-f7489480-2a3e-11eb-8986-41658acf9f14.png)
 
 ![image](https://user-images.githubusercontent.com/60634063/99669998-d895ce00-2a3d-11eb-83f8-7123d86c5ff2.png)
 
